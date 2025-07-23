@@ -1,0 +1,26 @@
+ [
+  {
+    "name": "Nusrat Jahan",
+    "Title": "Senior Product Designer",
+    "Company": "PixelForge",
+    "feedback":"Their attention to detail and commitment to quality is unmatched",
+    "image": "https://i.pravatar.cc/100?img=1",
+    "star": "🌟🌟🌟🌟🌟"
+  },
+  {
+    "name": "Rahim Uddin",
+    "Title": "Software Engineer",
+    "Company": "CodeCraft Labs",
+    "feedback": "Seamless collaboration, timely delivery, and top-notch quality.",
+    "image": "https://i.pravatar.cc/100?img=2",
+    "star": "🌟🌟🌟🌟"
+  },
+  {
+    "name": "Tanvir Hasan",
+    "Title": "Marketing Director",
+    "Company": "NovaReach Agency",
+    "feedback":"From strategy to execution, everything was handled professionally.",
+    "image": "https://i.pravatar.cc/100?img=3",
+    "star": "🌟🌟🌟🌟🌟"
+  }
+]

@@ -1,38 +1,33 @@
+import { useEffect, useState } from "react";
 import "./Testimonial.css";
 import { motion } from "framer-motion";
 
-const testimonials = [
-  {
-    name: "Nusrat Jahan",
-    Title: "Senior Product Designer",
-    Company: "PixelForge",
-    feedback:
-      "Their attention to detail and commitment to quality is unmatched",
-    image: "https://i.pravatar.cc/100?img=1",
-    star: "🌟🌟🌟🌟🌟",
-  },
-  {
-    name: "Rahim Uddin",
-    Title: "Software Engineer",
-    Company: "CodeCraft Labs",
-    feedback: "Seamless collaboration, timely delivery, and top-notch quality.",
-    image: "https://i.pravatar.cc/100?img=2",
-    star: "🌟🌟🌟🌟",
-  },
-  {
-    name: "Tanvir Hasan",
-    Title: "Marketing Director",
-    Company: "NovaReach Agency",
-    feedback:
-      "From strategy to execution, everything was handled professionally.",
-    image: "https://i.pravatar.cc/100?img=3",
-    star: "🌟🌟🌟🌟🌟",
-  },
-];
-
 const Testimonial = () => {
+  const [testimonials, setTestimonials] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const fetchFakeData = async () => {
+      try {
+        const res = await fetch("/public/data.json");
+        if (!res.ok) throw new Error("Failed load testimonialData");
+        const data = await res.json();
+        setTestimonials(data);
+      } catch (err) {
+        setError(err.message || "Something wrong");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchFakeData();
+  }, []);
+
+  if (loading)
+    return <div className="w-28 h-28  bg-white mt-20 ms-96 animate-spin"></div>;
+  if (error) return <p className="text-red-500 text-center">{error}</p>;
   return (
-    <div  >
+    <div>
       <section className="relative overflow-hidden py-16 px-6 ">
         {/* Top-left  */}
         <div className="absolute top-10 left-10 w-32 h-32 bg-black opacity-40   animate-diagonal-right" />
@@ -43,13 +38,10 @@ const Testimonial = () => {
         {/* Bottom-right */}
         <div className="absolute bottom-6 right-24 w-56 h-56 bg-black opacity-40 hidden md:block rounded-tr-full animate-float-down-right" />
         <div className="absolute bottom-10 right-20 w-56 h-56 bg-black opacity-40 rounded-bl-full  animate-float-down-left" />
-        
-
 
         {/* Bottom-left  */}
         <div className="absolute bottom-6 left-24 w-56 h-56 bg-black opacity-40 hidden md:block rounded-bl-full animate-float-down-left" />
         <div className="absolute bottom-10 left-20 w-56 h-56 bg-black opacity-40 rounded-tr-full  animate-float-up-right" />
-
 
         <div className="relative z-10">
           <section className="text-white py-14 px-">
