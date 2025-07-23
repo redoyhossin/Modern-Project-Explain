@@ -18,7 +18,7 @@ export const router = createBrowserRouter([
         element:<Card/>
       },
       {
-        path:"testimonials",
+        path:"/testimonials",
         element:<Testimonial/>
       }
     ]
