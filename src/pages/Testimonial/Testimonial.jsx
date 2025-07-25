@@ -10,7 +10,7 @@ const Testimonial = () => {
   useEffect(() => {
     const fetchFakeData = async () => {
       try {
-        const res = await fetch("/public/data.json");
+        const res = await fetch("data.json");
         if (!res.ok) throw new Error("Failed load testimonialData");
         const data = await res.json();
         setTestimonials(data);
